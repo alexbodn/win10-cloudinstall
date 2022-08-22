@@ -1,7 +1,33 @@
+#cloud-init
+
 # partition the disk, mbr, 1% free, 33% ntfs, 33% ext4, 33% ntfs
+device_aliases: {'ephemeral0': '/dev/sda'}
+disk_setup:
+  ephemeral0:
+    table_type: mbr
+    layout: 
+      - 1
+      - [33, 6]
+      - [33, 82]
+      - [33, 6]
+    overwrite: True
+
+fs_setup:
+  - label: linux
+    filesystem: 'ext4'
+    device: '/dev/sda2'
+  - cmd: mkfs -t %(filesystem)s -L %(label)s %(device)s
+    label: win10
+    filesystem: 'ntfs'
+    device: '/dev/sda1'
+  - cmd: mkfs -t %(filesystem)s -L %(label)s %(device)s
+    label: win10iso
+    filesystem: 'ntfs'
+    device: '/dev/sda3'
+
 # create random user and encrypted password
 # apt install ssh, wimtools, ntfs-3g, 7z-full
 # get windows download script in browser
-# scp windows preparation script
+# scp windows preparation script, or wget it from my github
 # run windows preparation script. needs work to make it batch install with the drivers.
-# grub-reboot 1; reboot
+# reboot in windows. grub-reboot 1; reboot
