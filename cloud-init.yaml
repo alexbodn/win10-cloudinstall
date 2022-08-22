@@ -1,0 +1,3 @@
+# partition the disk, mbr, 1% free, 33% ntfs, 33% ext4, 33% ntfs
+# create random user and encrypted password
+# apt install ssh, wimtools, ntfs-3g, 7z-full
