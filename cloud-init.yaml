@@ -29,16 +29,16 @@ fs_setup:
 disable_root: true
 
 groups:
-	- yzad-mfc2tfjf
+	- 'yzad-mfc2tfjf'
 users:
 	- default
-	- user: yzad-mfc2tfjf
-		primary_group: yzad-mfc2tfjf
+	- user: 'yzad-mfc2tfjf'
+		primary_group: 'yzad-mfc2tfjf'
 		ssh_authorized_keys:
-		- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBHqj4KexxwNO9L6QQSSZzXj6UE9FlyTczFZI7jypHJM3XAAZtBW5MkSmD8mVbTbqxlfmYnYVHECr3+h3yS3AtD4l0gb0cumSomXVfEocPyg3yKvG751jR2hw0Hyx+xaDqR319iCrfYazXnjwpMR9FiJA5VRvxRvOwgAJHeAFrBgX9NSfME/nQl+gJ+9V02bC7UUUusIxt9en2WK4ryH/mRVH33e1DOdMQ2FgYN/E8EKo7ElnHJV3IijabJflQDAYXytmHIjXxzSr7DOng4okhGqhimQOeHnMOZu4NY/Y7Nfkd0zc6QMoCU7YNI8sFsErvs7MjSB2jIsZ7jSMzLmVbTb+5Iow3nEKkfSjWhrXAuc1w/eUMM7SUI4pQOfQafrKXm/TyEIr2Ncc6k5hBeuFzzDHskmndjZqHQQnSGh9RUs+zg7fkerbTe/i+jVHX+nOf2HfN/1xp2BIaJ/WLITQCycuXgLBA9tvzlMUG3vVfvzgtKO1nYIM73Xe5co+eNNE= alex@penguin
+		- 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBHqj4KexxwNO9L6QQSSZzXj6UE9FlyTczFZI7jypHJM3XAAZtBW5MkSmD8mVbTbqxlfmYnYVHECr3+h3yS3AtD4l0gb0cumSomXVfEocPyg3yKvG751jR2hw0Hyx+xaDqR319iCrfYazXnjwpMR9FiJA5VRvxRvOwgAJHeAFrBgX9NSfME/nQl+gJ+9V02bC7UUUusIxt9en2WK4ryH/mRVH33e1DOdMQ2FgYN/E8EKo7ElnHJV3IijabJflQDAYXytmHIjXxzSr7DOng4okhGqhimQOeHnMOZu4NY/Y7Nfkd0zc6QMoCU7YNI8sFsErvs7MjSB2jIsZ7jSMzLmVbTb+5Iow3nEKkfSjWhrXAuc1w/eUMM7SUI4pQOfQafrKXm/TyEIr2Ncc6k5hBeuFzzDHskmndjZqHQQnSGh9RUs+zg7fkerbTe/i+jVHX+nOf2HfN/1xp2BIaJ/WLITQCycuXgLBA9tvzlMUG3vVfvzgtKO1nYIM73Xe5co+eNNE= alex@penguin'
 		lock_passwd: true
 		groups: users, sudo
-		sudo: ALL=(ALL) NOPASSWD:ALL
+		sudo: 'ALL=(ALL) NOPASSWD:ALL'
 
 # apt install task-ssh-server, wimtools, ntfs-3g, p7zip-full
 # optional:task-xfce-desktop, xrdp, xorgxrdp
@@ -47,15 +47,15 @@ apt:
 	packages_update: true
 	packages_upgrade: true
 	packages:
-		- task-ssh-server
+		- 'task-ssh-server'
+		- 'os-prober'
 		- wimtools
-		- ntfs-3g
-		- p7zip-full
+		- 'ntfs-3g'
+		- 'p7zip-full'
 		# for gui environment and rdp access
-		- task-xfce-desktop
+		- 'task-xfce-desktop'
 		- xrdp
 		- xorgxrdp
-
 
 # get windows download script in browser
 # scp windows preparation script, or wget it from my github
