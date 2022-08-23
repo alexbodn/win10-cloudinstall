@@ -44,20 +44,20 @@ users:
 # apt install task-ssh-server, wimtools, ntfs-3g, p7zip-full
 # optional:task-xfce-desktop, xrdp, xorgxrdp
 apt:
-	preserve_sources_list: true
-	packages_update: true
-	packages_upgrade: true
-	package_reboot_if_required: true
-	packages:
-		- 'task-ssh-server'
-		- 'os-prober'
-		- wimtools
-		- 'ntfs-3g'
-		- 'p7zip-full'
-		# for gui environment and rdp access
-		- 'task-xfce-desktop'
-		- xrdp
-		- xorgxrdp
+  preserve_sources_list: true
+  packages_update: true
+  packages_upgrade: true
+  package_reboot_if_required: true
+  packages:
+    - 'task-ssh-server'
+    - 'os-prober'
+    - wimtools
+    - 'ntfs-3g'
+    - 'p7zip-full'
+    # for gui environment and rdp access
+    - 'task-xfce-desktop'
+    - xrdp
+    - xorgxrdp
 
 # get windows download script in browser
 # scp windows preparation script, or wget it from my github
