@@ -1,4 +1,4 @@
-#cloud-init
+#cloud-config
 
 # partition the disk, mbr, 1% free, 33% ntfs, 33% ext4, 33% ntfs
 disk_setup:
@@ -15,10 +15,10 @@ fs_setup:
   - label: 'linux'
     filesystem: 'ext4'
     device: '/dev/sda2'
-	- label: 'win10'
+  - label: 'win10'
     filesystem: 'ntfs'
     device: '/dev/sda1'
-	- label: 'win10iso'
+  - label: 'win10iso'
     filesystem: 'ntfs'
     device: '/dev/sda3'
 
