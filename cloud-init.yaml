@@ -48,7 +48,8 @@ apt:
   packages_update: true
   packages_upgrade: true
   package_reboot_if_required: true
-  packages:
+
+packages:
     - 'task-ssh-server'
     - 'os-prober'
     - wimtools
