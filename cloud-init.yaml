@@ -46,6 +46,7 @@ apt:
 	preserve_sources_list: true
 	packages_update: true
 	packages_upgrade: true
+	package_reboot_if_required: true
 	packages:
 		- 'task-ssh-server'
 		- 'os-prober'
