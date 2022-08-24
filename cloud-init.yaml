@@ -1,4 +1,5 @@
 #cloud-config
+resize_rootfs: true
 
 # partition the disk, mbr, 1% free, 33% ntfs, 33% ext4, 33% ntfs
 disk_setup:
@@ -14,13 +15,13 @@ disk_setup:
 fs_setup:
   - label: 'linux'
     filesystem: 'ext4'
-    device: '/dev/sda2'
-    partition: sda2
+    device: '/dev/sda1'
+    partition: sda1
     overwrite: true
   - label: 'win10'
     filesystem: 'ntfs'
-    device: '/dev/sda1'
-    partition: sda1
+    device: '/dev/sda2'
+    partition: sda2
     overwrite: true
   - label: 'win10iso'
     filesystem: 'ntfs'
@@ -28,9 +29,9 @@ fs_setup:
     partition: sda3
     overwrite: true
 
-#create linux partition, always available driver
-runcmd:
-  - mkfs -t ext4 -L linux /dev/sda2
+mounts:
+  - ['/dev/sda1', '/']
+
 
 ### create random user and encrypted password
 ##disable_root: true
@@ -70,5 +71,6 @@ packages:
 
 # get windows download script in browser
 # scp windows preparation script, or wget it from my github
-# run windows preparation script. needs work to make it batch install with the drivers.
+# run windows preparation script.
+# needs work to make it batch install with the drivers. autounattend.xml
 # reboot in windows. grub-reboot 1; reboot
