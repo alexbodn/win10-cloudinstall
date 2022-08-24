@@ -15,12 +15,18 @@ fs_setup:
   - label: 'linux'
     filesystem: 'ext4'
     device: '/dev/sda2'
+    partition: sda2
+    overwrite: true
   - label: 'win10'
     filesystem: 'ntfs'
     device: '/dev/sda1'
+    partition: sda1
+    overwrite: true
   - label: 'win10iso'
     filesystem: 'ntfs'
     device: '/dev/sda3'
+    partition: sda3
+    overwrite: true
 
 #create linux partition, always available driver
 runcmd:
