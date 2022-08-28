@@ -8,5 +8,6 @@ menuentry "ubuntu-jammy-autoinstall-2022-08-28.iso" {
   set isofile="/root/ubuntu-jammy-autoinstall-2022-08-28.iso"
   loopback loop (hd0,msdos1)$isofile
   linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile quiet noeject noprompt splash
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile autoinstall   ds=nocloud\;s=/cdrom/nocloud/  quiet noeject noprompt splash
   initrd (loop)/casper/initrd
 }
