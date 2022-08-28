@@ -43,7 +43,8 @@ autoinstall:
     config:
     - ptable: msdos
       #serial: 0QEMU_QEMU_HARDDISK_drive-scsi0
-      match: largest
+      match:
+        size: largest
       path: /dev/sda
       preserve: true
       name: ''
