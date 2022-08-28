@@ -1,0 +1,110 @@
+#cloud-config
+autoinstall:
+  apt:
+    disable_components: []
+    geoip: true
+    preserve_sources_list: false
+    primary:
+    - arches:
+      - amd64
+      - i386
+      uri: http://us.archive.ubuntu.com/ubuntu
+    - arches:
+      - default
+      uri: http://ports.ubuntu.com/ubuntu-ports
+  drivers:
+    install: false
+  identity:
+    hostname: vmi939059
+    password: $6$qWLwG2cJEh7mG5sw$8t94.hKJ870xeN4xIS07Ru2hrn1ACGnn9WkiL7kEpFxz7GgsLOnC2DgUvWgLswB95gqfjEa3AnGS6qSbCJEti0
+    realname: adminov
+    username: unmistames
+  kernel:
+    package: linux-generic
+  keyboard:
+    layout: us
+    toggle: null
+    variant: ''
+  locale: en_US.UTF-8
+  network:
+    ethernets:
+      ens18:
+        dhcp4: true
+    version: 2
+  snaps:
+  - channel: stable
+    classic: true
+    name: powershell
+  ssh:
+    allow-pw: true
+    authorized-keys: []
+    install-server: true
+  storage:
+    config:
+    - ptable: msdos
+      #serial: 0QEMU_QEMU_HARDDISK_drive-scsi0
+      match:
+        size: largest
+      path: /dev/sda
+      preserve: true
+      name: ''
+      grub_device: true
+      type: disk
+      id: disk-sda
+    - device: disk-sda
+      size: 80G
+      wipe: superblock
+      flag: boot
+      number: 1
+      preserve: false
+      grub_device: false
+      type: partition
+      id: partition-sda1
+    - fstype: ext4
+      volume: partition-sda1
+      preserve: false
+      type: format
+      id: format-0
+    - path: /
+      device: format-0
+      type: mount
+      id: mount-0
+#
+    - device: disk-sda
+      size: 80G
+      flag: boot
+      number: 2
+      preserve: false
+      grub_device: false
+      type: partition
+      id: partition-sda2
+    - fstype: ntfs
+      volume: partition-sda2
+      preserve: false
+      type: format
+      id: format-1
+#    - path: /windows10
+#      device: format-1
+#      type: mount
+#      id: mount-1
+
+    - device: disk-sda
+      size: 120G
+      flag: boot
+      number: 3
+      preserve: false
+      grub_device: false
+      type: partition
+      id: partition-sda3
+    - fstype: ntfs
+      volume: partition-sda3
+      preserve: false
+      type: format
+      id: format-2
+#    - path: /wininstall
+#      device: format-2
+#      type: mount
+#      id: mount-2
+
+  updates: security
+  version: 1
