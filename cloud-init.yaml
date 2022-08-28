@@ -1,4 +1,4 @@
-#cloud-config
+#cloud-init
 resize_rootfs: true
 
 # partition the disk, mbr, 1% free, 33% ntfs, 33% ext4, 33% ntfs
