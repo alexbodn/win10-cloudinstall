@@ -40,6 +40,8 @@ autoinstall:
     authorized-keys: []
     install-server: true
   storage:
+    layout:
+      name: direct
     config:
     - ptable: msdos
       #serial: 0QEMU_QEMU_HARDDISK_drive-scsi0
