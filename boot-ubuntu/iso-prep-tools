@@ -1,0 +1,6 @@
+apt install -y xorriso sed curl gpg isolinux dirmngr
+
+wget https://raw.githubusercontent.com/covertsh/ubuntu-autoinstall-generator/main/ubuntu-autoinstall-generator.sh
+chmod +x ubuntu-autoinstall-generator.sh 
+
+grub-reboot ubuntu-jammy-autoinstall-2022-08-28.iso; reboot
