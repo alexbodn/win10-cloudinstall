@@ -10,6 +10,7 @@ release="11.4.0"
 arch="amd64"
 isofile="debian-${release}-${arch}-netinst.iso"
 isourl="https://cdimage.debian.org/debian-cd/current/${arch}/iso-cd/${isofile}"
+hd_media="http://http.us.debian.org/debian/dists/stable/main/installer-amd64/current/images/hd-media/"
 isofiles=$(mktemp -d)
 
 mkdir ${isofiles}
@@ -44,3 +45,7 @@ xorriso -as mkisofs -o "preseed-${isofile}" \
 echo "Should remove ${isofiles}"
 chmod +w -R ${isofiles}
 rm -r ${isofiles}
+
+#download hd-images
+wget ${hd_image}/vmlinuz
+wget ${hd_image}/initrd.gz
