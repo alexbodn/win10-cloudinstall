@@ -8,7 +8,9 @@ preseed=${1}
 arch="amd64"
 isofile="debian-11.4.0-${arch}-netinst.iso"
 isourl="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/${isofile}"
-isofiles="./isofiles"
+isofiles=$(mktemp -d)
+
+mkdir ${isofiles}
 
 #fetch iso
 wget -o ${isofile} ${isourl}
