@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#see https://wiki.debian.org/DebianInstaller/Preseed/EditIso
+
 sudo apt install -y xorriso isolinux wget gzip cpio
 
 preseed=${1}
