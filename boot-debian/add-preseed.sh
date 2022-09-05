@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo apt install -y xorriso isolinux
+sudo apt install -y xorriso isolinux wget gzip cpio
 
 preseed=${1}
 arch="amd64"
