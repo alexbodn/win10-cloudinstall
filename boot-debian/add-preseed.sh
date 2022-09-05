@@ -5,9 +5,11 @@
 sudo apt install -y xorriso isolinux wget gzip cpio
 
 preseed=${1}
+
+release="11.4.0"
 arch="amd64"
-isofile="debian-11.4.0-${arch}-netinst.iso"
-isourl="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/${isofile}"
+isofile="debian-${release}-${arch}-netinst.iso"
+isourl="https://cdimage.debian.org/debian-cd/current/${arch}/iso-cd/${isofile}"
 isofiles=$(mktemp -d)
 
 mkdir ${isofiles}
@@ -39,5 +41,6 @@ xorriso -as mkisofs -o "preseed-${isofile}" \
         -boot-load-size 4 -boot-info-table ${isofiles}
 
 #remove isofiles
+echo "Should remove ${isofiles}"
 chmod +w -R ${isofiles}
 rm -r ${isofiles}
