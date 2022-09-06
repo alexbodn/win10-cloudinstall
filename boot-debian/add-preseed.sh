@@ -26,11 +26,12 @@ wget -O ${isofile} ${isourl}
 xorriso -osirrox on -indev ${isofile} -extract / ${isofiles}
 
 #Adding a Preseed File to the Initrd
-chmod +w -R "${isofiles}/install.${minarch}/"
-gunzip "${isofiles}/install.${minarch}/initrd.gz"
-echo ${preseed} | cpio -H newc -o -A -F "${isofiles}/install.${minarch}/initrd"
-gzip "${isofiles}/install.${minarch}/initrd"
-chmod -w -R "${isofiles}/install.${minarch}/"
+kernelloc="${isofiles}/install.${minarch}/"
+chmod +w -R "${kernelloc}/"
+gunzip "${kernelloc}/initrd.gz"
+echo ${preseed} | cpio -H newc -o -A -F "${kernelloc}/initrd"
+gzip "${kernelloc}/initrd"
+chmod -w -R "${kernelloc}/"
 
 #Regenerating md5sum.txt
 pushd ${isofiles}
