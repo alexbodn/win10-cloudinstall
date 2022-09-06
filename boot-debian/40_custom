@@ -13,7 +13,7 @@ menuentry "preseed-debian-stable-amd64-netinst.iso" {
 echo 1
 set isofile="/root/preseed-debian-stable-amd64-netinst.iso"
 loopback loop (hd0,msdos1)$isofile
-linux (loop)/install.amd/vmlinuz boot=live components
+linux (loop)/install.amd/vmlinuz file=preseed.cfg preseed-md5=${}
 splash quiet "${loopback}"
 initrd (loop)/install.amd/initrd.gz
 }
