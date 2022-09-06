@@ -9,11 +9,11 @@ menuentry "Debian.4 net-install.iso" {
         linux /linuxbabe/vmlinuz
         initrd /linuxbabe/initrd.gz
 }
-menuentry "Debian GNU/Linux 10.8.0 Live amd64" {
+menuentry "preseed-debian-stable-amd64-netinst.iso" {
 echo 1
-set isofile="/debian/debian-live-10.8.0-amd64-lxde.iso"
-loopback loop (hd0,gptx)$isofile
-linux (loop)/live/vmlinuz-4.19.0-14-amd64 boot=live components
+set isofile="/root/preseed-debian-stable-amd64-netinst.iso"
+loopback loop (hd0,msdos1)$isofile
+linux (loop)/install.amd/vmlinuz boot=live components
 splash quiet "${loopback}"
-initrd (loop)/live/initrd.img-4.19.0-14-amd64
+initrd (loop)/install.amd/initrd.gz
 }
