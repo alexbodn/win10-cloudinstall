@@ -49,5 +49,5 @@ chmod +w -R ${isofiles}
 rm -r ${isofiles}
 
 #download hd-images
-wget ${hd_image}/vmlinuz
-wget ${hd_image}/initrd.gz
+#wget ${hd_image}/vmlinuz
+#wget ${hd_image}/initrd.gz
