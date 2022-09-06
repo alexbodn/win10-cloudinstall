@@ -13,12 +13,13 @@ arch="amd64"
 
 re_url="https.*${arch}-netinst\.iso"
 isourl=$(wget -O - "https://www.debian.org/releases/stable/debian-installer/"|grep -oP ${re_url}|grep -v nonfree)
-isofile=$(echo ${isourl} | sed -e 's/.*\///')
+#isofile=$(echo ${isourl} | sed -e 's/.*\///')
+isofile="debian-stable-${arch}-netinst.iso"
 
 isofiles=$(mktemp -d)
 
 #fetch iso
-wget -o ${isofile} ${isourl}
+wget -O ${isofile} ${isourl}
 
 #unpack iso
 xorriso -osirrox on -indev ${isofile} -extract / ${isofiles}
