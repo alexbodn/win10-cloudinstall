@@ -10,7 +10,7 @@ arch="amd64"
 #release="11.4.0"
 #isofile="debian-${release}-${arch}-netinst.iso"
 #isourl="https://cdimage.debian.org/debian-cd/current/${arch}/iso-cd/${isofile}"
-
+#
 re_url="https.*${arch}-netinst\.iso"
 isourl=$(wget -O - "https://www.debian.org/releases/stable/debian-installer/"|grep -oP ${re_url}|grep -v nonfree)
 #isofile=$(echo ${isourl} | sed -e 's/.*\///')
