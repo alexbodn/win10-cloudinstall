@@ -6,14 +6,16 @@ sudo apt install -y xorriso isolinux wget gzip cpio
 
 preseed=${1}
 
-release="11.4.0"
 arch="amd64"
-isofile="debian-${release}-${arch}-netinst.iso"
-isourl="https://cdimage.debian.org/debian-cd/current/${arch}/iso-cd/${isofile}"
-hd_media="http://http.us.debian.org/debian/dists/stable/main/installer-amd64/current/images/hd-media/"
-isofiles=$(mktemp -d)
+#release="11.4.0"
+#isofile="debian-${release}-${arch}-netinst.iso"
+#isourl="https://cdimage.debian.org/debian-cd/current/${arch}/iso-cd/${isofile}"
 
-mkdir ${isofiles}
+re_url="https.*${arch}-netinst\.iso"
+isourl=$(wget -O - "https://www.debian.org/releases/stable/debian-installer/"|grep -oP ${re_url}|grep -v nonfree)
+isofile=$(echo ${isourl} | sed -e 's/.*\///')
+
+isofiles=$(mktemp -d)
 
 #fetch iso
 wget -o ${isofile} ${isourl}
