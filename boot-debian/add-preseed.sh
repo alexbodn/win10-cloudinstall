@@ -7,6 +7,7 @@ sudo apt install -y xorriso isolinux wget gzip cpio
 preseed=${1}
 
 arch="amd64"
+minarch="amd"
 #release="11.4.0"
 #isofile="debian-${release}-${arch}-netinst.iso"
 #isourl="https://cdimage.debian.org/debian-cd/current/${arch}/iso-cd/${isofile}"
@@ -25,11 +26,11 @@ wget -O ${isofile} ${isourl}
 xorriso -osirrox on -indev ${isofile} -extract / ${isofiles}
 
 #Adding a Preseed File to the Initrd
-chmod +w -R "${isofiles}/install.${arch}/"
-gunzip "${isofiles}/install.${arch}/initrd.gz"
-echo ${preseed} | cpio -H newc -o -A -F "${isofiles}/install.${arch}/initrd"
-gzip "${isofiles}/install.${arch}/initrd"
-chmod -w -R "${isofiles}/install.${arch}/"
+chmod +w -R "${isofiles}/install.${minarch}/"
+gunzip "${isofiles}/install.${minarch}/initrd.gz"
+echo ${preseed} | cpio -H newc -o -A -F "${isofiles}/install.${minarch}/initrd"
+gzip "${isofiles}/install.${minarch}/initrd"
+chmod -w -R "${isofiles}/install.${minarch}/"
 
 #Regenerating md5sum.txt
 pushd ${isofiles}
